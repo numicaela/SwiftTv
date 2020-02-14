@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="SwiftTv" customModuleProvider="target">
+            <connections>
+                <outlet property="imageShow" destination="lFT-Vg-DgV" id="0M1-iL-lvm"/>
+                <outlet property="name" destination="v20-9Q-kmF" id="vNY-OS-ZqW"/>
+                <outlet property="summary" destination="btP-iH-fdx" id="aM6-tt-Giw"/>
+                <outlet property="view" destination="wKC-8i-DCX" id="ZcB-O2-AlM"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="wKC-8i-DCX">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lFT-Vg-DgV">
+                    <rect key="frame" x="72" y="49" width="263" height="263"/>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="7CU-hT-bAb">
+                    <rect key="frame" x="0.0" y="347" width="414" height="381"/>
+                    <subviews>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bBm-G1-kow">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="381"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9rw-uQ-PWc">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="61"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v20-9Q-kmF">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="33.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btP-iH-fdx">
+                                            <rect key="frame" x="0.0" y="41.5" width="414" height="19.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                            <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <viewLayoutGuide key="safeArea" id="rxs-dg-3tf"/>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="9rw-uQ-PWc" firstAttribute="leading" secondItem="bBm-G1-kow" secondAttribute="leading" id="2uS-fL-EJc"/>
+                                <constraint firstItem="9rw-uQ-PWc" firstAttribute="top" secondItem="bBm-G1-kow" secondAttribute="top" id="7mh-kw-EZE"/>
+                                <constraint firstAttribute="bottom" secondItem="9rw-uQ-PWc" secondAttribute="bottom" id="7qr-NC-Q8m"/>
+                                <constraint firstItem="9rw-uQ-PWc" firstAttribute="height" secondItem="bBm-G1-kow" secondAttribute="height" priority="250" id="YDJ-pc-x7T"/>
+                                <constraint firstAttribute="trailing" secondItem="9rw-uQ-PWc" secondAttribute="trailing" id="kWC-qM-Ffx"/>
+                                <constraint firstItem="9rw-uQ-PWc" firstAttribute="width" secondItem="bBm-G1-kow" secondAttribute="width" id="ybh-gS-jbU"/>
+                            </constraints>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <constraints>
+                        <constraint firstItem="bBm-G1-kow" firstAttribute="leading" secondItem="7CU-hT-bAb" secondAttribute="leading" id="Fhb-AK-BZb"/>
+                        <constraint firstItem="bBm-G1-kow" firstAttribute="top" secondItem="7CU-hT-bAb" secondAttribute="top" id="IB2-Ya-QD9"/>
+                        <constraint firstAttribute="bottom" secondItem="bBm-G1-kow" secondAttribute="bottom" id="boa-sI-xLa"/>
+                        <constraint firstAttribute="trailing" secondItem="bBm-G1-kow" secondAttribute="trailing" id="fN1-YN-YKE"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+            <constraints>
+                <constraint firstItem="7CU-hT-bAb" firstAttribute="leading" secondItem="ACY-IZ-vm9" secondAttribute="leading" id="2zS-18-a1U"/>
+                <constraint firstItem="7CU-hT-bAb" firstAttribute="top" secondItem="lFT-Vg-DgV" secondAttribute="bottom" constant="35" id="79m-UT-Z3c"/>
+                <constraint firstItem="ACY-IZ-vm9" firstAttribute="bottom" secondItem="7CU-hT-bAb" secondAttribute="bottom" constant="134" id="NqU-EI-HJf"/>
+                <constraint firstItem="lFT-Vg-DgV" firstAttribute="bottom" secondItem="ACY-IZ-vm9" secondAttribute="bottom" constant="-550" id="Pbd-Tx-ucb"/>
+                <constraint firstItem="lFT-Vg-DgV" firstAttribute="leading" secondItem="ACY-IZ-vm9" secondAttribute="leading" constant="72" id="TrD-iw-BH3"/>
+                <constraint firstItem="ACY-IZ-vm9" firstAttribute="trailing" secondItem="7CU-hT-bAb" secondAttribute="trailing" id="Wf8-D4-QhK"/>
+                <constraint firstItem="lFT-Vg-DgV" firstAttribute="centerX" secondItem="ACY-IZ-vm9" secondAttribute="centerX" constant="-3.5" id="kQg-jg-f6O"/>
+                <constraint firstItem="lFT-Vg-DgV" firstAttribute="top" secondItem="ACY-IZ-vm9" secondAttribute="top" constant="5" id="sU1-Rr-Oj1"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ACY-IZ-vm9"/>
+            <point key="canvasLocation" x="105.79710144927537" y="128.57142857142856"/>
+        </view>
+    </objects>
+</document>
