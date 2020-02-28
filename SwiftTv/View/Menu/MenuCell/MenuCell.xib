@@ -52,7 +52,7 @@
             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="card" destination="gcn-J4-9kB" id="N7z-ld-1uZ"/>
+                <outlet property="card" destination="H2p-sc-9uM" id="L8D-wm-B7i"/>
                 <outlet property="genre" destination="wSw-A8-mp9" id="jho-EL-FbU"/>
                 <outlet property="name" destination="l4C-e2-qIt" id="yte-Cz-A9w"/>
             </connections>

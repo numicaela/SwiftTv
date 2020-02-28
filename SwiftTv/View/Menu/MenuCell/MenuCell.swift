@@ -28,8 +28,9 @@ class MenuCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         setup()
+        
+        
     }
     
     override func prepareForReuse() {
@@ -40,24 +41,22 @@ class MenuCell: UITableViewCell {
     func setup(show: Show){
         name?.text = show.name
         genre?.text = genreType(show: show)
-    
-       
     }
     
 
+
     
-    private func genreType(show: Show) -> String{
+    private func genreType(show: Show) -> String {
         var gnr = ""
-        if let genres = show.genres {
-            for genre in genres {
-                if(genre == genres[0]) {
-                    gnr += "\(genre.rawValue)"
-                } else {
-                    gnr += ", \(genre.rawValue)"
-                }
+        let genres = show.genres
+        for genre in genres ?? [""] {
+            if genre != genres?[0] {
+                gnr += ", \(genre)"
+            }else {
+                gnr += genre
             }
         }
-        return gnr
+       return gnr
     }
     
     

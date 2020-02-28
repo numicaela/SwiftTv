@@ -14,7 +14,7 @@ struct Episode: Codable {
     let name: String?
     let season, number: Int?
     let airdate: String?
-    let airtime: Airtime?
+    let airtime: String?
     let airstamp: Date?
     let runtime: Int?
     let image: Image?
@@ -25,11 +25,6 @@ struct Episode: Codable {
         case id, url, name, season, number, airdate, airtime, airstamp, runtime, image, summary
         case links = "_links"
     }
-}
-
-enum Airtime: String, Codable {
-    case the2100 = "21:00"
-    case the2200 = "22:00"
 }
 
 // MARK: - Image

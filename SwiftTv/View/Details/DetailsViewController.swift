@@ -21,7 +21,7 @@ class DetailsViewController: UIViewController {
     init(show: Show) {
         self.show = show
         
-        super.init(nibName: "DeatailsViewController", bundle: nil)
+        super.init(nibName: "DetailsViewController", bundle: nil)
         
     }
     
@@ -39,7 +39,7 @@ class DetailsViewController: UIViewController {
         name?.text = show.name
         summary?.text = show.summary?.htmlAtributtedString
         
-        let url = URL(string: (show.image?.original)!)
+        let url = URL(string: (show.image!))
         imageShow?.downloadImage(from: url!)
         summary?.lineBreakMode = .byWordWrapping
         summary?.numberOfLines = 0
@@ -60,7 +60,6 @@ extension UIImageView {
     func downloadImage(from url: URL){
         getData(from: url){ data, response, error in
             guard let data = data, error == nil else {return}
-            print(response?.suggestedFilename ?? url.lastPathComponent)
             DispatchQueue.main.async {
                 self.image = UIImage(data: data)
             }

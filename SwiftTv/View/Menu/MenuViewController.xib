@@ -23,6 +23,7 @@
                     <color key="separatorColor" cocoaTouchSystemColor="darkTextColor"/>
                     <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     <connections>
+                        <outlet property="dataSource" destination="-1" id="70o-Ku-d9X"/>
                         <outlet property="delegate" destination="i5M-Pr-FkT" id="mJy-mS-oCg"/>
                     </connections>
                 </tableView>
