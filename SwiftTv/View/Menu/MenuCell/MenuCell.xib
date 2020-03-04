@@ -12,24 +12,24 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="KGk-i7-Jjw" customClass="MenuCell" customModule="SwiftTv" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="374" height="155"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="374" height="155"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gcn-J4-9kB">
-                        <rect key="frame" x="0.0" y="0.0" width="374" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="155"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="a3B-r0-lsB">
-                                <rect key="frame" x="0.0" y="0.0" width="374" height="150"/>
+                                <rect key="frame" x="0.0" y="0.0" width="374" height="155"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4C-e2-qIt">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="129.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="134.5"/>
                                         <fontDescription key="fontDescription" name="Thonburi-Bold" family="Thonburi" pointSize="32"/>
                                         <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wSw-A8-mp9">
-                                        <rect key="frame" x="0.0" y="129.5" width="374" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="134.5" width="374" height="20.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20.5" id="9be-VV-PG8"/>
                                         </constraints>
@@ -45,7 +45,6 @@
                             <constraint firstItem="J1V-cF-9iU" firstAttribute="trailing" secondItem="a3B-r0-lsB" secondAttribute="trailing" id="3sS-VM-8Pp"/>
                             <constraint firstItem="a3B-r0-lsB" firstAttribute="top" secondItem="gcn-J4-9kB" secondAttribute="top" id="GHw-Kb-luW"/>
                             <constraint firstItem="a3B-r0-lsB" firstAttribute="leading" secondItem="J1V-cF-9iU" secondAttribute="leading" id="Sry-Xg-FZn"/>
-                            <constraint firstAttribute="height" constant="150" id="avv-hT-pxh"/>
                             <constraint firstAttribute="bottom" secondItem="a3B-r0-lsB" secondAttribute="bottom" id="d3V-xL-Roc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="J1V-cF-9iU"/>

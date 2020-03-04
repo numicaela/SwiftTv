@@ -43,11 +43,13 @@ class MenuCell: UITableViewCell {
         genre?.text = genreType(show: show)
     }
     
-    
     private func genreType(show: Show) -> String {
         var gnr = ""
         guard let genres = show.genres  else {return gnr}
+        
         var genresBis =  genres
+        guard !genresBis.isEmpty else {return gnr}
+        
         gnr += genresBis[0]
         genresBis.removeFirst()
         genresBis.forEach(){
