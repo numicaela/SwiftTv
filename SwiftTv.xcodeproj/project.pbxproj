@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12315220240EF70200B6F5AB /* StringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1231521F240EF70200B6F5AB /* StringManager.swift */; };
 		124CAA7923E9BD210061B56A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124CAA7823E9BD210061B56A /* AppDelegate.swift */; };
 		124CAA8223E9BD2C0061B56A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 124CAA8123E9BD2C0061B56A /* Assets.xcassets */; };
 		124CAA8523E9BD2C0061B56A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 124CAA8323E9BD2C0061B56A /* LaunchScreen.storyboard */; };
@@ -16,8 +17,8 @@
 		124CAA9C23E9F2640061B56A /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124CAA9A23E9F2640061B56A /* MenuCell.swift */; };
 		124CAA9D23E9F2640061B56A /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 124CAA9B23E9F2640061B56A /* MenuCell.xib */; };
 		12A16D0123F2F30000E9D85C /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A16D0023F2F30000E9D85C /* Episode.swift */; };
+		12B702B9240E94D6001735EF /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B702B8240E94D6001735EF /* Api.swift */; };
 		12B7B7BC23FEC6720071991E /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B7B7BB23FEC6720071991E /* Show.swift */; };
-		12B7B7BE23FEC70C0071991E /* ShowDTOMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B7B7BD23FEC70C0071991E /* ShowDTOMapping.swift */; };
 		12FFC91923EB119C00611FDC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FFC91723EB119C00611FDC /* DetailsViewController.swift */; };
 		12FFC91A23EB119C00611FDC /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12FFC91823EB119C00611FDC /* DetailsViewController.xib */; };
 		7AF438DE07694F4A33144A77 /* Pods_SwiftTv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8918FCA9203AFFBA1DC59A2D /* Pods_SwiftTv.framework */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		0512F5BC7780CE7FD579C54C /* Pods-SwiftTv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTv.release.xcconfig"; path = "Target Support Files/Pods-SwiftTv/Pods-SwiftTv.release.xcconfig"; sourceTree = "<group>"; };
+		1231521F240EF70200B6F5AB /* StringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringManager.swift; sourceTree = "<group>"; };
 		124CAA7523E9BD210061B56A /* SwiftTv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		124CAA7823E9BD210061B56A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		124CAA8123E9BD2C0061B56A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -36,8 +38,8 @@
 		124CAA9A23E9F2640061B56A /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		124CAA9B23E9F2640061B56A /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 		12A16D0023F2F30000E9D85C /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		12B702B8240E94D6001735EF /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		12B7B7BB23FEC6720071991E /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
-		12B7B7BD23FEC70C0071991E /* ShowDTOMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDTOMapping.swift; sourceTree = "<group>"; };
 		12FFC91723EB119C00611FDC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		12FFC91823EB119C00611FDC /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		8918FCA9203AFFBA1DC59A2D /* Pods_SwiftTv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1231521E240EDB2F00B6F5AB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1231521F240EF70200B6F5AB /* StringManager.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		124CAA6C23E9BD210061B56A = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +87,8 @@
 		124CAA7723E9BD210061B56A /* SwiftTv */ = {
 			isa = PBXGroup;
 			children = (
+				1231521E240EDB2F00B6F5AB /* Extensions */,
+				12B702B7240E94B8001735EF /* Rest */,
 				124CAA9423E9C2850061B56A /* View */,
 				124CAA8E23E9BD670061B56A /* Models */,
 				124CAA7823E9BD210061B56A /* AppDelegate.swift */,
@@ -92,7 +104,6 @@
 			children = (
 				12B7B7BA23FEC6500071991E /* ModelsDTO */,
 				12B7B7BB23FEC6720071991E /* Show.swift */,
-				12B7B7BD23FEC70C0071991E /* ShowDTOMapping.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -113,6 +124,14 @@
 				124CAA9B23E9F2640061B56A /* MenuCell.xib */,
 			);
 			path = MenuCell;
+			sourceTree = "<group>";
+		};
+		12B702B7240E94B8001735EF /* Rest */ = {
+			isa = PBXGroup;
+			children = (
+				12B702B8240E94D6001735EF /* Api.swift */,
+			);
+			path = Rest;
 			sourceTree = "<group>";
 		};
 		12B7B7BA23FEC6500071991E /* ModelsDTO */ = {
@@ -277,10 +296,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12B702B9240E94D6001735EF /* Api.swift in Sources */,
 				124CAA7923E9BD210061B56A /* AppDelegate.swift in Sources */,
 				124CAA9723E9E7B20061B56A /* MenuViewController.swift in Sources */,
 				124CAA9C23E9F2640061B56A /* MenuCell.swift in Sources */,
-				12B7B7BE23FEC70C0071991E /* ShowDTOMapping.swift in Sources */,
+				12315220240EF70200B6F5AB /* StringManager.swift in Sources */,
 				124CAA9023E9BDB90061B56A /* ShowDTO.swift in Sources */,
 				12B7B7BC23FEC6720071991E /* Show.swift in Sources */,
 				12A16D0123F2F30000E9D85C /* Episode.swift in Sources */,

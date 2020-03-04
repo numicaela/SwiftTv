@@ -39,22 +39,22 @@ struct ShowDTO: Codable {
         self.id = (try? container.decode( Int.self, forKey: .id))
         self.url = (try? container.decode(String.self, forKey: .url))
         self.name = (try? container.decode( String.self, forKey: .name)) ?? ""
-        self.type = (try? container.decode(String.self, forKey: .type))
-        self.language = (try? container.decode(String.self, forKey: .language))
-        self.genres = (try? container.decode([String].self, forKey: .genres))
-        self.status = (try? container.decode(String.self, forKey: .status))
-        self.runtime = (try? container.decode(Int.self, forKey: .runtime))
-        self.premiered = (try? container.decode(String.self, forKey: .premiered))
-        self.officialSite = (try? container.decode(String.self, forKey: .officialSite))
-        self.schedule = (try? container.decode(ScheduleDTO.self, forKey: .schedule))
-        self.rating = (try? container.decode(RatingDTO.self, forKey: .rating))
-        self.weight = (try? container.decode(Int.self, forKey: .weight))
-        self.network = (try? container.decode(NetworkDTO.self, forKey: .network))
-        self.webChannel = (try? container.decode(NetworkDTO.self, forKey: .webChannel))
-        self.externals = (try? container.decode(ExternalsDTO.self, forKey: .externals))
-        self.image = (try? container.decode(ImageShowDTO.self, forKey: .image))
-        self.summary = (try? container.decode(String.self, forKey: .summary))
-        self.updated = (try? container.decode(Int.self, forKey: .updated))
+        self.type = try? container.decode(String.self, forKey: .type)
+        self.language = try? container.decode(String.self, forKey: .language)
+        self.genres = try? container.decode([String].self, forKey: .genres)
+        self.status = try? container.decode(String.self, forKey: .status)
+        self.runtime = try? container.decode(Int.self, forKey: .runtime)
+        self.premiered = try? container.decode(String.self, forKey: .premiered)
+        self.officialSite = try? container.decode(String.self, forKey: .officialSite)
+        self.schedule = try? container.decode(ScheduleDTO.self, forKey: .schedule)
+        self.rating = try? container.decode(RatingDTO.self, forKey: .rating)
+        self.weight = try? container.decode(Int.self, forKey: .weight)
+        self.network = try? container.decode(NetworkDTO.self, forKey: .network)
+        self.webChannel = try? container.decode(NetworkDTO.self, forKey: .webChannel)
+        self.externals = try? container.decode(ExternalsDTO.self, forKey: .externals)
+        self.image = try? container.decode(ImageShowDTO.self, forKey: .image)
+        self.summary = try? container.decode(String.self, forKey: .summary)
+        self.updated = try? container.decode(Int.self, forKey: .updated)
     }
 
 
@@ -105,6 +105,6 @@ struct ScheduleDTO: Codable {
     let days: String?
 }
 
-typealias ShowsDTO = [ShowDTO]
+typealias showsDTO = [ShowDTO]
 
 

@@ -39,8 +39,8 @@ class DetailsViewController: UIViewController {
         name?.text = show.name
         summary?.text = show.summary?.htmlAtributtedString
         
-        let url = URL(string: (show.image!))
-        imageShow?.downloadImage(from: url!)
+        guard let url = URL(string: show.image ?? "") else {return}
+        imageShow?.downloadImage(from: url)
         summary?.lineBreakMode = .byWordWrapping
         summary?.numberOfLines = 0
         
@@ -51,33 +51,6 @@ class DetailsViewController: UIViewController {
     }
 }
 
-extension UIImageView {
-    
-    func getData(from url: URL, completion: @escaping (Data?,URLResponse?,Error?)->()){
-        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
-    }
-    
-    func downloadImage(from url: URL){
-        getData(from: url){ data, response, error in
-            guard let data = data, error == nil else {return}
-            DispatchQueue.main.async {
-                self.image = UIImage(data: data)
-            }
-        }
-    }
-}
 
-extension String {
-    var htmlAtributtedString: String? {
-        guard let data = data(using: .utf8) else {return nil}
-        
-        do {
-            return try NSAttributedString(data: data,
-                                          options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue] , documentAttributes: nil).string
-        }catch let error as NSError {
-            print(error.localizedDescription)
-            return  nil
-        }
-    }
-    
-}
+
+

@@ -43,20 +43,17 @@ class MenuCell: UITableViewCell {
         genre?.text = genreType(show: show)
     }
     
-
-
     
     private func genreType(show: Show) -> String {
         var gnr = ""
-        let genres = show.genres
-        for genre in genres ?? [""] {
-            if genre != genres?[0] {
-                gnr += ", \(genre)"
-            }else {
-                gnr += genre
-            }
+        guard let genres = show.genres  else {return gnr}
+        var genresBis =  genres
+        gnr += genresBis[0]
+        genresBis.removeFirst()
+        genresBis.forEach(){
+            gnr += ", \($0)"
         }
-       return gnr
+        return gnr
     }
     
     

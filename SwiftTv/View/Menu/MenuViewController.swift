@@ -9,16 +9,32 @@
 import UIKit
 import Alamofire
 
+
 class MenuViewController: UIViewController {
     
     @IBOutlet var table: UITableView?
     
     var shows = [Show]()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        fetchShows()
+        
+        let api = Api()
+        api.fetchShows(){(showsData) in
+            
+            guard let showsDTO = showsData else {return}
+            
+            for showDTO in showsDTO {
+                self.shows.append(Show(showDTO))
+            }
+            
+            DispatchQueue.main.async {
+                self.table?.reloadData()
+            }
+        }
     }
     
     private func setup(){
@@ -27,42 +43,22 @@ class MenuViewController: UIViewController {
     }
     
     
-    private func setupTable(){
+     func setupTable(){
         
+        setupDelegate()
         table?.separatorStyle = .singleLine
         table?.register(UINib(nibName: "MenuCell", bundle: nil), forCellReuseIdentifier: MenuCell.reuseIdentifier)
+        
+    }
+    
+    func setupDelegate(){
         table?.delegate = self
         table?.dataSource = self
-        table?.rowHeight = 155
-        
     }
     
-}
-
-extension MenuViewController {
     
-    private func fetchShows(){
-        
-    _ = AF.request("http://api.tvmaze.com/shows")
-        .response { (response) in
-            guard let data = response.data else {return}
-            let decoder = JSONDecoder()
-            do {
-             let showsData = try decoder.decode(ShowsDTO.self, from: data)
-                for show in showsData {
-                self.shows.append(ShowDTOMapping.map(show))
-                }
-                DispatchQueue.main.async {
-                    self.table?.reloadData()
-                }
-            }catch{
-                
-            }
-        }
-        
-    }
-}
     
+}
 
 
 extension MenuViewController : UITableViewDataSource, UITableViewDelegate{
