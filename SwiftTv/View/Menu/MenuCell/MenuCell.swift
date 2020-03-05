@@ -19,13 +19,6 @@ class MenuCell: UITableViewCell {
     static let reuseIdentifier = "MenuCell"
     
     
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
- 
-        card?.backgroundColor = selected ? UIColor.systemIndigo.withAlphaComponent(0.1) : .black
-    }
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
@@ -44,18 +37,18 @@ class MenuCell: UITableViewCell {
     }
     
     private func genreType(show: Show) -> String {
-        var gnr = ""
-        guard let genres = show.genres  else {return gnr}
+        var returnable = ""
+        guard let genres = show.genres  else {return returnable}
         
         var genresBis =  genres
-        guard !genresBis.isEmpty else {return gnr}
+        guard !genresBis.isEmpty else {return returnable}
         
-        gnr += genresBis[0]
+        returnable += genresBis[0]
         genresBis.removeFirst()
         genresBis.forEach(){
-            gnr += ", \($0)"
+            returnable += ", \($0)"
         }
-        return gnr
+        return returnable
     }
     
     
@@ -65,6 +58,7 @@ class MenuCell: UITableViewCell {
         selectionStyle = .none
         card?.layer.borderWidth = 1
         card?.layer.borderColor = UIColor.lightGray.cgColor
+        card?.layer.backgroundColor = UIColor.black.cgColor
     }
     
     private  func clear(){
