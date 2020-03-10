@@ -16,25 +16,28 @@ class MenuViewController: UIViewController {
     
     var shows = [Show]()
     
+    private let presenter: MenuVCPresenter
+    
+    init(presenter: MenuVCPresenter) {
+        self.presenter = presenter
+        super.init(nibName: "MenuViewController", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        presenter.view = self
+}
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        presenter.getShows()
         
-        let api = Api()
-        api.fetchShows(){(showsData) in
-            
-            guard let showsDTO = showsData else {return}
-            
-            for showDTO in showsDTO {
-                self.shows.append(Show(showDTO))
-            }
-            
-            DispatchQueue.main.async {
-                self.table?.reloadData()
-            }
-        }
     }
     
     private func setup(){
@@ -56,10 +59,7 @@ class MenuViewController: UIViewController {
         table?.dataSource = self
     }
     
-    
-    
 }
-
 
 extension MenuViewController : UITableViewDataSource, UITableViewDelegate{
     
@@ -93,6 +93,19 @@ extension MenuViewController : UITableViewDataSource, UITableViewDelegate{
         
     }
     
+}
+
+extension MenuViewController: MenuVCPresentable{
+    
+    func launchShows(_ shows: [Show]) {
+     
+        self.shows = shows
+        
+        DispatchQueue.main.async {
+                  self.table?.reloadData()
+          }
+        
+    }
 }
 
 

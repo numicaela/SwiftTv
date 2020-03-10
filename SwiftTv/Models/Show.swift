@@ -16,20 +16,9 @@ struct Show {
     let language: String?
     let genres: [String]?
     let image: String?
-    let rating: Double?
+    let rating: String?
     let summary: String?
     
-    init(_ show: ShowDTO) {
    
-        id = show.id
-        name = show.name
-        type = show.type
-        language = show.language
-        genres = show.genres
-        image = show.image?.original
-        rating = show.rating?.average
-        summary = show.summary
-       
-   }
     
 }
