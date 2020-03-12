@@ -18,6 +18,7 @@ class MenuViewController: UIViewController {
     
     private let presenter: MenuVCPresenter
     
+    
     init(presenter: MenuVCPresenter) {
         self.presenter = presenter
         super.init(nibName: "MenuViewController", bundle: nil)
@@ -32,7 +33,9 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         setup()
         presenter.view = self
+        
 }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -70,25 +73,19 @@ extension MenuViewController : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shows.count
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MenuCell.reuseIdentifier, for: indexPath)
-        if let menuCell = cell as? MenuCell {
-            let show = shows[indexPath.row]
-            menuCell.setup(show: show)
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: MenuCell.reuseIdentifier, for: indexPath) as! MenuCell
+        let show = shows[indexPath.row]
+        cell.setup(show: show)
         return cell
     }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath : IndexPath){
         
         let show = shows[indexPath.row]
         let controller = DetailsViewController.init(show: show)
-        
-        
         navigationController?.pushViewController(controller, animated: true)
         
     }
@@ -98,13 +95,10 @@ extension MenuViewController : UITableViewDataSource, UITableViewDelegate{
 extension MenuViewController: MenuVCPresentable{
     
     func launchShows(_ shows: [Show]) {
-     
         self.shows = shows
-        
         DispatchQueue.main.async {
-                  self.table?.reloadData()
-          }
-        
+            self.table?.reloadData()
+        }
     }
 }
 

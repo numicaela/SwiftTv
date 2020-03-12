@@ -38,7 +38,7 @@ class DetailsViewController: UIViewController {
     func setup(show: Show){
         name?.text = show.name
         summary?.text = show.summary
-        
+
         guard let url = URL(string: show.image ?? "") else {return}
         imageShow?.downloadImage(from: url)
         summary?.lineBreakMode = .byWordWrapping

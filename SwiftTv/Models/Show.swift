@@ -19,6 +19,4 @@ struct Show {
     let rating: String?
     let summary: String?
     
-   
-    
 }
