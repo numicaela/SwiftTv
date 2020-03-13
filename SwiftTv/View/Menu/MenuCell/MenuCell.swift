@@ -30,12 +30,7 @@ class MenuCell: UITableViewCell {
         clear()
     }
     
-    func setup(show: ShowPresentable){
-        name?.text = show.name
-        genre?.text = show.genres
-        
-        
-    }
+
     
     func setup(show: Show){
         name?.text = show.name

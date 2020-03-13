@@ -82,6 +82,8 @@ extension MenuViewController : UITableViewDataSource, UITableViewDelegate{
         
         let show = shows[indexPath.row]
         presenter.pushToDetailVC(show: show, from: self)
+//        let controller = DetailsViewController.init(show: show)
+//        navigationController?.pushViewController(controller, animated: true)
     }
     
 }
@@ -94,6 +96,7 @@ extension MenuViewController: MenuVCPresentable {
             self.table?.reloadData()
         }
     }
+
 }
 
 

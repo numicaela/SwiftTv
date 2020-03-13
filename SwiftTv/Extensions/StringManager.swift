@@ -40,11 +40,6 @@ class StringManager {
                 returnable += ", \($0)"
             }
             return returnable
-        
-        
     }
-    
-    
-    
 }
 
