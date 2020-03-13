@@ -21,8 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let screenFrame = UIScreen.main.bounds
         let presenter = MenuVCPresenter()
         
-        window = UIWindow(frame: screenFrame)
         let mainView = MenuViewController.init(presenter: presenter)
+        
+        window = UIWindow(frame: screenFrame)
+        
         window?.rootViewController =  UINavigationController(rootViewController: mainView)
         window?.makeKeyAndVisible()
         return true

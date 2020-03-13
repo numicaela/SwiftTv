@@ -7,29 +7,40 @@
 //
 
 import Foundation
+import UIKit
 
 protocol MenuVCPresentable: class {
     func launchShows(_ shows:[Show])
 }
 
-class MenuVCPresenter{
+class MenuVCPresenter {
     
     weak var view: MenuVCPresentable?
+    
+    var shows = [Show]()
     
     func getShows(){
         
         let api = Api()
         api.fetchShows(){(showsData) in
-            var shows = [Show]()
+            
             guard let showsDTO = showsData else {return}
     
             for showDTO in showsDTO {
-                shows.append(ShowDTOMapping.map(showDTO))
+                self.shows.append(ShowDTOMapping.map(showDTO))
             }
-            self.view?.launchShows(shows)
+            self.view?.launchShows(self.shows)
             
         }
 
+    }
+    
+    func pushToDetailVC(show: Show, from viewController: UIViewController){
+        
+        
+        let presenter = DetailsVCPresenter.init(show)
+        let destinationViewController = DetailsViewController(show: show)
+        viewController.navigationController?.pushViewController(destinationViewController, animated: true)
     }
 
 }

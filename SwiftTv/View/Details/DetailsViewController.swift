@@ -20,9 +20,7 @@ class DetailsViewController: UIViewController {
     
     init(show: Show) {
         self.show = show
-        
         super.init(nibName: "DetailsViewController", bundle: nil)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -37,13 +35,11 @@ class DetailsViewController: UIViewController {
     
     func setup(show: Show){
         name?.text = show.name
-        summary?.text = show.summary
-
+        summary?.attributedText = StringManager.htmlAtributtedString(show.summary)
         guard let url = URL(string: show.image ?? "") else {return}
         imageShow?.downloadImage(from: url)
         summary?.lineBreakMode = .byWordWrapping
         summary?.numberOfLines = 0
-        
     }
     
     private func setup(){

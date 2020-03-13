@@ -10,6 +10,14 @@ import Foundation
 
 class DetailsVCPresenter {
     
+    private var show: Show
+    
+    init(_ show: Show) {
+        
+        self.show = show
+    }
+    
+    
     
     
     

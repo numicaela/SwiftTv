@@ -33,14 +33,12 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         setup()
         presenter.view = self
-        
-}
+    }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         presenter.getShows()
-        
     }
     
     private func setup(){
@@ -50,11 +48,9 @@ class MenuViewController: UIViewController {
     
     
      func setupTable(){
-        
         setupDelegate()
         table?.separatorStyle = .singleLine
         table?.register(UINib(nibName: "MenuCell", bundle: nil), forCellReuseIdentifier: MenuCell.reuseIdentifier)
-        
     }
     
     func setupDelegate(){
@@ -85,14 +81,12 @@ extension MenuViewController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath : IndexPath){
         
         let show = shows[indexPath.row]
-        let controller = DetailsViewController.init(show: show)
-        navigationController?.pushViewController(controller, animated: true)
-        
+        presenter.pushToDetailVC(show: show, from: self)
     }
     
 }
 
-extension MenuViewController: MenuVCPresentable{
+extension MenuViewController: MenuVCPresentable {
     
     func launchShows(_ shows: [Show]) {
         self.shows = shows
