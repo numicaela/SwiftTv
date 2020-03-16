@@ -36,10 +36,12 @@ class DetailsViewController: UIViewController {
     func setup(show: Show){
         name?.text = show.name
         summary?.attributedText = StringManager.htmlAtributtedString(show.summary)
-        guard let url = URL(string: show.image ?? "") else {return}
-        imageShow?.downloadImage(from: url)
+        summary?.textColor = UIColor.systemYellow
+        summary?.font = UIFont.boldSystemFont(ofSize: 13.0)
         summary?.lineBreakMode = .byWordWrapping
         summary?.numberOfLines = 0
+        guard let url = URL(string: show.image ?? "") else {return}
+        imageShow?.downloadImage(from: url)
     }
     
     private func setup(){
