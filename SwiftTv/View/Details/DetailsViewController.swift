@@ -38,8 +38,6 @@ class DetailsViewController: UIViewController {
         summary?.attributedText = StringManager.htmlAtributtedString(show.summary)
         summary?.textColor = UIColor.systemYellow
         summary?.font = UIFont.boldSystemFont(ofSize: 13.0)
-        summary?.lineBreakMode = .byWordWrapping
-        summary?.numberOfLines = 0
         guard let url = URL(string: show.image ?? "") else {return}
         imageShow?.downloadImage(from: url)
     }

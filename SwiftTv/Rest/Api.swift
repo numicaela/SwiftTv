@@ -29,6 +29,33 @@ class  Api {
         }
         
     }
+    
+    func fetchEpisodes(id: Int?, completion: @escaping ([EpisodeDTO]?)-> Void){
+        
+        if let id = id{
+        let url = "http://api.tvmaze.com/shows/\(id)/episodes"
+            
+            AF.request(url)
+                .response{ (response) in
+                    guard let data = response.data else {return}
+                    let decoder = JSONDecoder()
+                    do {
+                        let episodesData = try decoder.decode(episodesDTO.self, from: data)
+                        completion(episodesData)
+                    }catch{
+                        completion(nil)
+                    }
+                
+            }
+        
+        }
+        
+    }
+    
+    
+    
+    
+    
 }
 
 extension UIImageView {

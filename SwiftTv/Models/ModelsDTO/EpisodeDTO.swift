@@ -46,4 +46,4 @@ struct SelfClass: Codable {
     let href: String?
 }
 
-typealias Episodes = [Episode]
+typealias episodesDTO = [EpisodeDTO]
