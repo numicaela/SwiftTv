@@ -16,17 +16,16 @@ class DetailsViewController: UIViewController {
     @IBOutlet var summary: UILabel?
     @IBOutlet var language: UILabel?
     @IBOutlet var rating: UILabel?
-    @IBOutlet var episodes: UILabel?
+    @IBOutlet var episodesCount: UILabel?
     
     @IBOutlet var containerData: UIStackView?
     
-    private let show: Show
     
+    private let presenter: DetailsVCPresenter
     
-    
-    
-    init(show: Show) {
-        self.show = show
+
+    init(presenter: DetailsVCPresenter) {
+        self.presenter = presenter
         super.init(nibName: "DetailsViewController", bundle: nil)
     }
     
@@ -36,12 +35,14 @@ class DetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup(show: self.show)
-       
+        presenter.view = self
+        presenter.viewDidLoad()
+        
+        
     }
     
     
-    func setup(show: Show){
+    func setupShow(show: Show){
         name?.text = show.name
         language?.text = show.language
         rating?.text = show.rating
@@ -50,15 +51,36 @@ class DetailsViewController: UIViewController {
         summary?.font = UIFont.systemFont(ofSize: 18.0)
         guard let url = URL(string: show.image ?? "") else {return}
         imageShow?.downloadImage(from: url)
-     
+        
+        
     }
     
-   
     
-    private func setup(){
-        title = "Details"
+    func setUpEpisodes(episodes: [Episode]){
+        
+        episodesCount?.text = "\(episodes.count)"
+        
     }
+    
+    
 }
+
+extension DetailsViewController: DetailsVCPresentable {
+   
+    func launchShow(_ show: Show) {
+        setupShow(show: show)
+    }
+    
+    
+    func launchEpisodes(_ episodes: [Episode]) {
+        setUpEpisodes(episodes: episodes)
+    }
+    
+    
+    
+}
+
+
 
 
 

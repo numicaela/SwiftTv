@@ -16,7 +16,6 @@ struct Episode{
     let number: Int?
     let airdate: String?
     let airtime: String?
-    let aistamp: Date?
     let runtime: Int?
     let summary: String?
     
@@ -27,7 +26,6 @@ struct Episode{
         number = episode.number
         airdate = episode.airdate
         airtime = episode.airtime
-        aistamp = episode.airstamp
         runtime = episode.runtime
         summary = episode.summary
         

@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="SwiftTv" customModuleProvider="target">
             <connections>
-                <outlet property="episodes" destination="eP9-DH-Z9y" id="Xfs-Eh-e93"/>
+                <outlet property="episodesCount" destination="eP9-DH-Z9y" id="Xfs-Eh-e93"/>
                 <outlet property="imageShow" destination="lFT-Vg-DgV" id="0M1-iL-lvm"/>
                 <outlet property="language" destination="gnj-S3-rfu" id="1Pa-Sv-qoB"/>
                 <outlet property="name" destination="v20-9Q-kmF" id="vNY-OS-ZqW"/>

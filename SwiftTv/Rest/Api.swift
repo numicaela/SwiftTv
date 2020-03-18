@@ -32,24 +32,23 @@ class  Api {
     
     func fetchEpisodes(id: Int?, completion: @escaping ([EpisodeDTO]?)-> Void){
         
-        if let idEpisode = id {
-            let url = "http://api.tvmaze.com/shows/\(idEpisode)/episodes"
-            
+        if let id = id {
+            let url = "http://api.tvmaze.com/shows/\(id)/episodes"
             AF.request(url)
-                .response { (response) in
+                .response { response in
                     guard let data = response.data else {return}
-                    let decoder = JSONDecoder()
+                    print(data)
                     do {
-                        let episodesData = try decoder.decode(episodesDTO.self, from: data)
+                        let decoder = JSONDecoder()
+                        let episodesData = try decoder.decode(EpisodesDTO.self, from: data)
                         completion(episodesData)
-                    }catch{
+                    }catch let error{
+                        print(error)
                         completion(nil)
                     }
             }
         }
     }
-    
-    
     
     
     
