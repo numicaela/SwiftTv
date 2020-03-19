@@ -37,13 +37,11 @@ class  Api {
             AF.request(url)
                 .response { response in
                     guard let data = response.data else {return}
-                    print(data)
                     do {
                         let decoder = JSONDecoder()
                         let episodesData = try decoder.decode(EpisodesDTO.self, from: data)
                         completion(episodesData)
-                    }catch let error{
-                        print(error)
+                    }catch {
                         completion(nil)
                     }
             }

@@ -14,8 +14,6 @@ class MenuViewController: UIViewController {
     
     @IBOutlet var table: UITableView?
     
-    var shows = [Show]()
-    
     private let presenter: MenuVCPresenter
     
     
@@ -26,6 +24,7 @@ class MenuViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+        
     }
     
     
@@ -47,7 +46,7 @@ class MenuViewController: UIViewController {
     }
     
     
-     func setupTable(){
+    func setupTable(){
         setupDelegate()
         table?.separatorStyle = .singleLine
         table?.register(UINib(nibName: "MenuCell", bundle: nil), forCellReuseIdentifier: MenuCell.reuseIdentifier)
@@ -62,25 +61,24 @@ class MenuViewController: UIViewController {
 
 extension MenuViewController : UITableViewDataSource, UITableViewDelegate{
     
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return shows.count
+        return presenter.getShowCount().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuCell.reuseIdentifier, for: indexPath) as! MenuCell
-        let show = shows[indexPath.row]
+        let show = presenter.getShowIndex(indexPath.row)
         cell.setup(show: show)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath : IndexPath){
-        
-        let show = shows[indexPath.row]
+        let show = presenter.getShowIndex(indexPath.row)
         presenter.pushToDetailVC(show: show, from: self)
     }
     
@@ -88,13 +86,11 @@ extension MenuViewController : UITableViewDataSource, UITableViewDelegate{
 
 extension MenuViewController: MenuVCPresentable {
     
-    func launchShows(_ shows: [Show]) {
-        self.shows = shows
+    func launchShows() {
         DispatchQueue.main.async {
             self.table?.reloadData()
         }
     }
-
 }
 
 

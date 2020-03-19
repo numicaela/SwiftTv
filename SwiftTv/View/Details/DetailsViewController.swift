@@ -18,8 +18,6 @@ class DetailsViewController: UIViewController {
     @IBOutlet var rating: UILabel?
     @IBOutlet var episodesCount: UILabel?
     
-    @IBOutlet var containerData: UIStackView?
-    
     
     private let presenter: DetailsVCPresenter
     
@@ -37,31 +35,31 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         presenter.view = self
         presenter.viewDidLoad()
-        
-        
     }
     
     
     func setupShow(show: Show){
         name?.text = show.name
         language?.text = show.language
-        rating?.text = show.rating
+        rating?.text = "\(show.rating ?? 0.0)"
+        setupSummary(show: show)
+        setupImage(show: show)
+    }
+    
+    func setupSummary(show: Show){
         summary?.attributedText = StringManager.htmlAtributtedString(show.summary)
         summary?.textColor = UIColor.systemYellow
         summary?.font = UIFont.systemFont(ofSize: 18.0)
+    }
+    
+    func setupImage(show: Show){
         guard let url = URL(string: show.image ?? "") else {return}
         imageShow?.downloadImage(from: url)
-        
-        
     }
     
-    
-    func setUpEpisodes(episodes: [Episode]){
-        
+    func setupEpisodes(episodes: [Episode]){
         episodesCount?.text = "\(episodes.count)"
-        
     }
-    
     
 }
 
@@ -73,11 +71,8 @@ extension DetailsViewController: DetailsVCPresentable {
     
     
     func launchEpisodes(_ episodes: [Episode]) {
-        setUpEpisodes(episodes: episodes)
+        setupEpisodes(episodes: episodes)
     }
-    
-    
-    
 }
 
 

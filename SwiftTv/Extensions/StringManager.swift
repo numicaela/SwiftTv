@@ -41,5 +41,6 @@ class StringManager {
             }
             return returnable
     }
+    
 }
 

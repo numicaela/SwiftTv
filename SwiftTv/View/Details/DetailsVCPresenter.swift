@@ -17,7 +17,7 @@ class DetailsVCPresenter {
     
     weak var view: DetailsVCPresentable?
     private var show: Show
-    var episodes = [Episode]()
+    private var episodes = [Episode]()
     
    
     init(_ show: Show) {
@@ -31,28 +31,15 @@ class DetailsVCPresenter {
     
    
     func getEpisodes(){
-        
         let api = Api()
-        
         api.fetchEpisodes(id: show.id){(episodeData) in
-            
             guard let episodesDTO = episodeData else {return}
-            
             for episodeDTO in episodesDTO {
                 self.episodes.append(Episode(episodeDTO))
-            }
-            
-            print(self.episodes.count)
+            }            
             self.view?.launchEpisodes(self.episodes)
         }
     }
-    
-    
-    
-  
-    
-    
-    
     
     
 }
