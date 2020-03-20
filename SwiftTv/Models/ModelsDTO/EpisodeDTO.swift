@@ -8,21 +8,20 @@
 
 import Foundation
 
-struct Episode: Codable {
+struct EpisodeDTO: Codable {
     let id: Int?
     let url: String?
     let name: String?
     let season, number: Int?
     let airdate: String?
     let airtime: String?
-    let airstamp: Date?
     let runtime: Int?
     let image: Image?
     let summary: String?
     let links: Links?
 
     enum CodingKeys: String, CodingKey {
-        case id, url, name, season, number, airdate, airtime, airstamp, runtime, image, summary
+        case id, url, name, season, number, airdate, airtime, runtime, image, summary
         case links = "_links"
     }
 }
@@ -46,4 +45,6 @@ struct SelfClass: Codable {
     let href: String?
 }
 
-typealias Episodes = [Episode]
+
+
+typealias EpisodesDTO = [EpisodeDTO]?

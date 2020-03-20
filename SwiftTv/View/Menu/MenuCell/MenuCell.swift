@@ -19,11 +19,10 @@ class MenuCell: UITableViewCell {
     static let reuseIdentifier = "MenuCell"
     
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()
-        
-        
     }
     
     override func prepareForReuse() {
@@ -31,26 +30,12 @@ class MenuCell: UITableViewCell {
         clear()
     }
     
-    func setup(show: Show){
+
+    
+    func setup(_ show: Show){
         name?.text = show.name
-        genre?.text = genreType(show: show)
+        genre?.text = StringManager.getStringFromArray(show.genres)
     }
-    
-    private func genreType(show: Show) -> String {
-        var returnable = ""
-        guard let genres = show.genres  else {return returnable}
-        
-        var genresBis =  genres
-        guard !genresBis.isEmpty else {return returnable}
-        
-        returnable += genresBis[0]
-        genresBis.removeFirst()
-        genresBis.forEach(){
-            returnable += ", \($0)"
-        }
-        return returnable
-    }
-    
     
     private func setup(){
         prepareForReuse()

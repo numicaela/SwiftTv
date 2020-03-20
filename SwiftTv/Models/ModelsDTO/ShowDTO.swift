@@ -36,9 +36,9 @@ struct ShowDTO: Codable {
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.id = (try? container.decode( Int.self, forKey: .id))
+        self.id = (try? container.decode(Int.self, forKey: .id))
         self.url = (try? container.decode(String.self, forKey: .url))
-        self.name = (try? container.decode( String.self, forKey: .name)) ?? ""
+        self.name = (try? container.decode(String.self, forKey: .name))
         self.type = try? container.decode(String.self, forKey: .type)
         self.language = try? container.decode(String.self, forKey: .language)
         self.genres = try? container.decode([String].self, forKey: .genres)

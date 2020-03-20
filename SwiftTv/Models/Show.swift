@@ -20,16 +20,16 @@ struct Show {
     let summary: String?
     
     init(_ show: ShowDTO) {
-   
         id = show.id
         name = show.name
-        type = show.type
+        type = show.language
         language = show.language
         genres = show.genres
         image = show.image?.original
         rating = show.rating?.average
         summary = show.summary
-       
-   }
+    }
+    
+  
     
 }

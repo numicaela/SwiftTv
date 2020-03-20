@@ -9,17 +9,37 @@
 import Foundation
 import UIKit
 
-public extension String {
-    var htmlAtributtedString: String? {
-        guard let data = data(using: .utf8) else {return nil}
+class StringManager {
+    
+    static func htmlAtributtedString(_ str: String?) -> NSAttributedString? {
         
-        do {
-            return try NSAttributedString(data: data,
-                                          options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue] , documentAttributes: nil).string
-        }catch let error as NSError {
-            print(error.localizedDescription)
-            return  nil
+        guard let dataString = str else {return nil}
+        var attStr = NSAttributedString.init(string: "")
+        let data = Data(dataString.utf8)
+        
+       if let attributedStr = try? NSAttributedString(data: data,
+                                                     options: [.documentType: NSAttributedString.DocumentType.html] , documentAttributes: nil) {
+        attStr = attributedStr
         }
+            return attStr
+       
+    }
+    
+    static func getStringFromArray(_ arrayStr: [String]?) -> String? {
+        
+        var returnable = ""
+
+        guard let arrayString = arrayStr  else {return returnable}
+            
+            var arrayStringDuplicate =  arrayString
+            guard !arrayStringDuplicate.isEmpty else {return returnable}
+            
+            returnable += arrayStringDuplicate[0]
+            arrayStringDuplicate.removeFirst()
+            arrayStringDuplicate.forEach(){
+                returnable += ", \($0)"
+            }
+            return returnable
     }
     
 }
