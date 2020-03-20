@@ -36,11 +36,11 @@ class MenuVCPresenter {
     }
     
     
-    func getShowIndex(_ index: Int) -> Show{
-        return shows[index]
+    func getShowIndex(_ indexPath: IndexPath) -> Show{        
+        return shows[indexPath.row]
     }
     
-    func pushToDetailVC(show: Show, from viewController: UIViewController){
+    func pushToDetailVC(_ show: Show, from viewController: UIViewController){
         let presenter = DetailsVCPresenter.init(show)
         let destinationViewController = DetailsViewController(presenter: presenter)
         viewController.navigationController?.pushViewController(destinationViewController, animated: true)

@@ -72,14 +72,14 @@ extension MenuViewController : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuCell.reuseIdentifier, for: indexPath) as! MenuCell
-        let show = presenter.getShowIndex(indexPath.row)
-        cell.setup(show: show)
+       let show = presenter.getShowIndex(indexPath)
+        cell.setup(show)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath : IndexPath){
-        let show = presenter.getShowIndex(indexPath.row)
-        presenter.pushToDetailVC(show: show, from: self)
+        let show = presenter.getShowIndex(indexPath)
+        presenter.pushToDetailVC(show, from: self)
     }
     
 }
