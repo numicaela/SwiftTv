@@ -19,10 +19,10 @@ class DetailsViewController: UIViewController {
     @IBOutlet var episodesCount: UILabel?
     
     
-    private let presenter: DetailsVCPresenter
+    private let presenter: DetailsPresenter
     
 
-    init(presenter: DetailsVCPresenter) {
+    init(presenter: DetailsPresenter) {
         self.presenter = presenter
         super.init(nibName: "DetailsViewController", bundle: nil)
     }

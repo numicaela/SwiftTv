@@ -14,10 +14,10 @@ class MenuViewController: UIViewController {
     
     @IBOutlet var table: UITableView?
     
-    private let presenter: MenuVCPresenter
+    private let presenter: MenuPresenter
     
     
-    init(presenter: MenuVCPresenter) {
+    init(presenter: MenuPresenter) {
         self.presenter = presenter
         super.init(nibName: "MenuViewController", bundle: nil)
     }
@@ -32,12 +32,16 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         setup()
         presenter.view = self
+        presenter.viewDidLoad()
+        
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         presenter.getShows()
+        
+        
     }
     
     private func setup(){
@@ -83,7 +87,7 @@ extension MenuViewController : UITableViewDataSource, UITableViewDelegate{
     
 }
 
-extension MenuViewController: MenuVCPresentable {
+extension MenuViewController: MenuPresentable {
     
     func launchShows() {
         DispatchQueue.main.async {

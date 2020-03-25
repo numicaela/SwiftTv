@@ -13,7 +13,7 @@ protocol DetailsVCPresentable: class {
     func launchShow(_ show: Show)
 }
 
-class DetailsVCPresenter {
+class DetailsPresenter {
     
     weak var view: DetailsVCPresentable?
     private var show: Show
