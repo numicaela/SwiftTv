@@ -33,15 +33,12 @@ class MenuViewController: UIViewController {
         setup()
         presenter.view = self
         presenter.viewDidLoad()
-        
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        presenter.getShows()
-        
-        
+        presenter.fetchShows()
     }
     
     private func setup(){
@@ -71,7 +68,7 @@ extension MenuViewController : UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.getShowCount().count
+        return presenter.getShows().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

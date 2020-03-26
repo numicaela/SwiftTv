@@ -10,7 +10,7 @@ import Foundation
 
 protocol MenuInteractorDelegate: class {
     
-    func didResponse(shows:[Show])
+    func didResponse(shows: [Show])
     
 }
 
@@ -18,19 +18,20 @@ class MenuInteractor {
     
     weak var delegate: MenuInteractorDelegate?
     
+    private var shows = [Show]()
+    
     func getAllShows(){
         
-        var shows = [Show]()
-        
         let api = Api()
-        api.fetchShows(){ [weak self] (showsData) in
+        api.fetchShows(){(showsData) in
             
             guard let showsDTO = showsData else {return}
             
             for showDTO in showsDTO{
-                shows.append(Show(showDTO))
+                self.shows.append(Show(showDTO))
             }
-            self?.delegate?.didResponse(shows: shows)
+            self.delegate?.didResponse(shows: self.shows)
         }
+        
     }
 }

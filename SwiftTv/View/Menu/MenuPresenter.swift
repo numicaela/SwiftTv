@@ -27,15 +27,13 @@ class MenuPresenter {
         interactor.delegate = self
     }
     
-    
-    func getShows(){
+    func fetchShows(){
         interactor.getAllShows()
     }
     
-    func getShowCount() -> [Show]{
+    func getShows() -> [Show]{
         return self.shows
     }
-    
     
     func getShowIndex(_ indexPath: IndexPath) -> Show{        
         return shows[indexPath.row]
@@ -50,9 +48,10 @@ class MenuPresenter {
     
 }
 
-extension MenuPresenter: MenuInteractorDelegate{
+extension MenuPresenter: MenuInteractorDelegate {
    
     func didResponse(shows: [Show]) {
+        self.shows = shows
         self.view?.launchShows()
     }
     

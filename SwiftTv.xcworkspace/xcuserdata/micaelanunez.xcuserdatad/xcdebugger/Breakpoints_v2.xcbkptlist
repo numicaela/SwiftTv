@@ -39,7 +39,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "48A6EE13-D218-409E-8C77-6E42E1DA7747"
+            uuid = "5C9E3355-6B2A-4E06-9BD1-A4EA6F766C5D"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -55,32 +55,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A6C7D105-3BA0-4238-8923-D1930528BE40"
+            uuid = "9C38F1CE-651A-4B2E-BCC4-9D4B5DA4A73C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SwiftTv/View/Menu/MenuPresenter.swift"
+            filePath = "SwiftTv/View/Menu/MenuInteractor.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "getShows()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "4599D110-D5F3-4D66-83D4-34C029BBCB24"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SwiftTv/View/Menu/MenuPresenter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "didResponse(shows:)"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "getAllShows()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
