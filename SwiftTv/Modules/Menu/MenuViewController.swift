@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Alamofire
 
 
 class MenuViewController: UIViewController {
@@ -24,7 +23,6 @@ class MenuViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-        
     }
     
     
@@ -38,7 +36,7 @@ class MenuViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        presenter.fetchShows()
+        presenter.viewDidAppear()
     }
     
     private func setup(){

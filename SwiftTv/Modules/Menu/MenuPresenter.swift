@@ -25,9 +25,10 @@ class MenuPresenter {
     
     func viewDidLoad(){
         interactor.delegate = self
+        
     }
     
-    func fetchShows(){
+    func viewDidAppear(){
         interactor.getAllShows()
     }
     

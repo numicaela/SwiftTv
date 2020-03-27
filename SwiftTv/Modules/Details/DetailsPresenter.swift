@@ -18,7 +18,7 @@ class DetailsPresenter {
     private let interactor = DetailsInteractor()
     
     weak var view: DetailsVCPresentable?
-    private var show : Show
+    private var show: Show
     private var episodes = [Episode]()
     
     init(_ show: Show) {
@@ -31,7 +31,7 @@ class DetailsPresenter {
     }
     
     
-    func getEpisodes(_ show: Show){
+   private func getEpisodes(_ show: Show){
         interactor.fetchEpisodes(show: show)
     }
     
