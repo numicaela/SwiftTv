@@ -15,30 +15,35 @@ protocol DetailsVCPresentable: class {
 
 class DetailsPresenter {
     
+    private let interactor = DetailsInteractor()
+    
     weak var view: DetailsVCPresentable?
-    private var show: Show
+    private var show : Show
     private var episodes = [Episode]()
     
-   
     init(_ show: Show) {
         self.show = show
     }
     
     func viewDidLoad(){
-        view?.launchShow(show)
-        getEpisodes()
+        interactor.delegate = self
+        getEpisodes(show)
     }
     
-   
-    func getEpisodes(){
-        let api = Api()
-        api.fetchEpisodes(id: show.id){(episodeData) in
-            guard let episodesDTO = episodeData else {return}
-            for episodeDTO in episodesDTO {
-                self.episodes.append(Episode(episodeDTO))
-            }            
-            self.view?.launchEpisodes(self.episodes)
-        }
+    
+    func getEpisodes(_ show: Show){
+        interactor.fetchEpisodes(show: show)
+    }
+    
+    
+}
+
+extension DetailsPresenter: DetailsInteractorDelegate{
+    
+    func didResponse(episodes: [Episode]) {
+        self.episodes = episodes
+        view?.launchShow(show)
+        view?.launchEpisodes(episodes)
     }
     
     

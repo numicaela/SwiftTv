@@ -35,6 +35,7 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
         presenter.view = self
         presenter.viewDidLoad()
+        
     }
     
     
