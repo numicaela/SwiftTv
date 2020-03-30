@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let screenFrame = UIScreen.main.bounds
-        let presenter = MenuPresenter()
+        let interactor = MenuInteractor()
+        let presenter = MenuPresenter(interactor: interactor)
         
         let mainView = MenuViewController.init(presenter: presenter)
         

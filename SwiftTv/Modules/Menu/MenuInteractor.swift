@@ -17,10 +17,10 @@ protocol MenuInteractorDelegate: class {
 class MenuInteractor {
     
     weak var delegate: MenuInteractorDelegate?
-    
-    private var shows = [Show]()
-    
+   
     func getAllShows(){
+        
+        var shows = [Show]()
         
         let api = Api()
         api.fetchShows(){(showsData) in
@@ -28,9 +28,9 @@ class MenuInteractor {
             guard let showsDTO = showsData else {return}
             
             for showDTO in showsDTO{
-                self.shows.append(Show(showDTO))
+                shows.append(Show(showDTO))
             }
-            self.delegate?.didResponse(shows: self.shows)
+            self.delegate?.didResponse(shows: shows)
         }
         
     }

@@ -15,21 +15,18 @@ protocol MenuPresentable: class {
 
 class MenuPresenter {
     
-    private let interactor = MenuInteractor()
+    private var interactor = MenuInteractor()
     weak var view: MenuPresentable?
     private var shows = [Show]()
     
-    init() {
-        
+    init(interactor: MenuInteractor) {
+        self.interactor = interactor
     }
     
     func viewDidLoad(){
         interactor.delegate = self
-        
-    }
-    
-    func viewDidAppear(){
         interactor.getAllShows()
+        
     }
     
     func getShows() -> [Show]{
