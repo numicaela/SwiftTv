@@ -16,19 +16,21 @@ protocol DetailsInteractorDelegate: class {
 class DetailsInteractor {
     
     weak var delegate: DetailsInteractorDelegate?
-  
     
     func fetchEpisodes(show: Show){
          
         var episodes = [Episode]()
         
         let api = Api()
-        api.fetchEpisodes(id: show.id){(episodeData) in
+        api.fetchEpisodes(id: show.id){ [weak self] (episodeData) in
+            
             guard let episodesDTO = episodeData else {return}
+            
             for episodeDTO in episodesDTO {
                 episodes.append(Episode(episodeDTO))
             }
-            self.delegate?.didResponse(episodes: episodes)
+            
+            self?.delegate?.didResponse(episodes: episodes)
         }
     }
     

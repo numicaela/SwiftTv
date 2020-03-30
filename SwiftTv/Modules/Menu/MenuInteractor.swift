@@ -23,14 +23,14 @@ class MenuInteractor {
         var shows = [Show]()
         
         let api = Api()
-        api.fetchShows(){(showsData) in
+        api.fetchShows(){ [weak self] (showsData) in
             
             guard let showsDTO = showsData else {return}
             
             for showDTO in showsDTO{
                 shows.append(Show(showDTO))
             }
-            self.delegate?.didResponse(shows: shows)
+            self?.delegate?.didResponse(shows: shows)
         }
         
     }
