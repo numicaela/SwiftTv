@@ -30,8 +30,6 @@ class MenuCell: UITableViewCell {
         clear()
     }
     
-
-    
     func setup(_ show: Show){
         name?.text = show.name
         genre?.text = StringManager.getStringFromArray(show.genres)

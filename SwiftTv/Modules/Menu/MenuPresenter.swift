@@ -9,32 +9,29 @@
 import Foundation
 import UIKit
 
-protocol MenuVCPresentable: class {
+protocol MenuPresentable: class {
     func launchShows()
 }
 
-class MenuVCPresenter {
+class MenuPresenter {
     
-    weak var view: MenuVCPresentable?
+    private var interactor = MenuInteractor()
+    weak var view: MenuPresentable?
     private var shows = [Show]()
     
-    
-    func getShows(){
-        
-        let api = Api()
-        api.fetchShows(){(showsData) in
-            guard let showsDTO = showsData else {return}
-            for showDTO in showsDTO {
-                self.shows.append(Show(showDTO))
-            }
-            self.view?.launchShows()
-        }
+    init(interactor: MenuInteractor) {
+        self.interactor = interactor
     }
     
-    func getShowCount() -> [Show]{
+    func viewDidLoad(){
+        interactor.delegate = self
+        interactor.getAllShows()
+        
+    }
+    
+    func getShows() -> [Show]{
         return self.shows
     }
-    
     
     func getShowIndex(_ indexPath: IndexPath) -> Show{        
         return shows[indexPath.row]
@@ -42,9 +39,18 @@ class MenuVCPresenter {
     
     func didSelectRowAt(_ indexPath: IndexPath, from viewController: UIViewController){
         let show = shows[indexPath.row]
-        let presenter = DetailsVCPresenter.init(show)
+        let presenter = DetailsPresenter.init(show)
         let destinationViewController = DetailsViewController(presenter: presenter)
         viewController.navigationController?.pushViewController(destinationViewController, animated: true)
+    }
+    
+}
+
+extension MenuPresenter: MenuInteractorDelegate {
+   
+    func didResponse(shows: [Show]) {
+        self.shows = shows
+        self.view?.launchShows()
     }
     
 }
