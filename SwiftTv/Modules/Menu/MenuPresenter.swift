@@ -15,18 +15,18 @@ protocol MenuPresentable: class {
 
 class MenuPresenter {
     
-    private var interactor = MenuInteractor()
+    private let interactor = MenuInteractor()
+    private var router = MenuRouter()
     weak var view: MenuPresentable?
     private var shows = [Show]()
     
-    init(interactor: MenuInteractor) {
-        self.interactor = interactor
+    init(router: MenuRouter) {
+        self.router = router
+         interactor.delegate = self
     }
     
     func viewDidLoad(){
-        interactor.delegate = self
         interactor.getAllShows()
-        
     }
     
     func getShows() -> [Show]{
@@ -37,13 +37,9 @@ class MenuPresenter {
         return shows[indexPath.row]
     }
     
-    func didSelectRowAt(_ indexPath: IndexPath, from viewController: UIViewController){
-        let show = shows[indexPath.row]
-        let presenter = DetailsPresenter.init(show)
-        let destinationViewController = DetailsViewController(presenter: presenter)
-        viewController.navigationController?.pushViewController(destinationViewController, animated: true)
+    func didSelectRowAt(show: Show, from view: UIViewController){
+        router.pushShowDetail(show: show, from: view)
     }
-    
 }
 
 extension MenuPresenter: MenuInteractorDelegate {

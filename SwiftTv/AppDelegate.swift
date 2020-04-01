@@ -13,21 +13,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
 
-
-
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let screenFrame = UIScreen.main.bounds
-        let interactor = MenuInteractor()
-        let presenter = MenuPresenter(interactor: interactor)
         
-        let mainView = MenuViewController.init(presenter: presenter)
+        let mainView = MenuRouter.start()
         
         window = UIWindow(frame: screenFrame)
-        
         window?.rootViewController =  UINavigationController(rootViewController: mainView)
         window?.makeKeyAndVisible()
+        
         return true
     }
 

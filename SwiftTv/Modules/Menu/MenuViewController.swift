@@ -76,7 +76,8 @@ extension MenuViewController : UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath : IndexPath){
-        presenter.didSelectRowAt(indexPath, from: self)
+        let show = presenter.getShowIndex(indexPath)
+        presenter.didSelectRowAt(show: show, from: self)
     }
     
 }

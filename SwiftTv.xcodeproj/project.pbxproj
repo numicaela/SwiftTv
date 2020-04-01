@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1218DD692434D284004680AE /* MenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218DD682434D284004680AE /* MenuRouter.swift */; };
+		1218DD6B2434DA81004680AE /* DetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1218DD6A2434DA81004680AE /* DetailsRouter.swift */; };
 		12315220240EF70200B6F5AB /* StringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1231521F240EF70200B6F5AB /* StringManager.swift */; };
 		124CAA7923E9BD210061B56A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124CAA7823E9BD210061B56A /* AppDelegate.swift */; };
 		124CAA8223E9BD2C0061B56A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 124CAA8123E9BD2C0061B56A /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		0512F5BC7780CE7FD579C54C /* Pods-SwiftTv.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTv.release.xcconfig"; path = "Target Support Files/Pods-SwiftTv/Pods-SwiftTv.release.xcconfig"; sourceTree = "<group>"; };
+		1218DD682434D284004680AE /* MenuRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRouter.swift; sourceTree = "<group>"; };
+		1218DD6A2434DA81004680AE /* DetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsRouter.swift; sourceTree = "<group>"; };
 		1231521F240EF70200B6F5AB /* StringManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringManager.swift; sourceTree = "<group>"; };
 		124CAA7523E9BD210061B56A /* SwiftTv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTv.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		124CAA7823E9BD210061B56A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +165,7 @@
 				124CAA9623E9E7B20061B56A /* MenuViewController.xib */,
 				12BC0DF0241290A200ED4166 /* MenuPresenter.swift */,
 				127F975A242B9C9300B93E3A /* MenuInteractor.swift */,
+				1218DD682434D284004680AE /* MenuRouter.swift */,
 				124CAA9923E9F2390061B56A /* MenuCell */,
 			);
 			path = Menu;
@@ -173,6 +178,7 @@
 				12FFC91823EB119C00611FDC /* DetailsViewController.xib */,
 				12BC0DEE24128FF200ED4166 /* DetailsPresenter.swift */,
 				1274501A242D46CE0042D6DB /* DetailsInteractor.swift */,
+				1218DD6A2434DA81004680AE /* DetailsRouter.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -316,9 +322,11 @@
 				12BC0DF32412D9A400ED4166 /* Episode.swift in Sources */,
 				127F975B242B9C9300B93E3A /* MenuInteractor.swift in Sources */,
 				12B702B9240E94D6001735EF /* Api.swift in Sources */,
+				1218DD6B2434DA81004680AE /* DetailsRouter.swift in Sources */,
 				124CAA7923E9BD210061B56A /* AppDelegate.swift in Sources */,
 				124CAA9723E9E7B20061B56A /* MenuViewController.swift in Sources */,
 				124CAA9C23E9F2640061B56A /* MenuCell.swift in Sources */,
+				1218DD692434D284004680AE /* MenuRouter.swift in Sources */,
 				12BC0DF1241290A200ED4166 /* MenuPresenter.swift in Sources */,
 				12315220240EF70200B6F5AB /* StringManager.swift in Sources */,
 				124CAA9023E9BDB90061B56A /* ShowDTO.swift in Sources */,
