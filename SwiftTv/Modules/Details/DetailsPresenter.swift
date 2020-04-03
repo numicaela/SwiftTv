@@ -15,8 +15,8 @@ protocol DetailsVCPresentable: class {
 
 class DetailsPresenter {
     
-    var interactor = DetailsInteractor()
-    var router = DetailsRouter()
+    var interactor: DetailsInteractor?
+    var router: DetailsRouter?
     weak var view: DetailsVCPresentable?
     private var show: Show
     private var episodes = [Episode]()
@@ -31,7 +31,7 @@ class DetailsPresenter {
     
     
    private func getEpisodes(_ show: Show){
-        interactor.fetchEpisodes(show: show)
+        interactor?.fetchEpisodes(show: show)
     }
     
     
