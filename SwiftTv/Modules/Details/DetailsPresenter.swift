@@ -15,24 +15,23 @@ protocol DetailsVCPresentable: class {
 
 class DetailsPresenter {
     
-    private let interactor = DetailsInteractor()
-    
+    var interactor: DetailsInteractor?
+    var router: DetailsRouter?
     weak var view: DetailsVCPresentable?
     private var show: Show
     private var episodes = [Episode]()
     
-    init(_ show: Show) {
+    init(show: Show) {
         self.show = show
     }
     
     func viewDidLoad(){
-        interactor.delegate = self
         getEpisodes(show)
     }
     
     
    private func getEpisodes(_ show: Show){
-        interactor.fetchEpisodes(show: show)
+        interactor?.fetchEpisodes(show: show)
     }
     
     

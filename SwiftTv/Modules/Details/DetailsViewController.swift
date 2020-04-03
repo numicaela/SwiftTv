@@ -18,22 +18,11 @@ class DetailsViewController: UIViewController {
     @IBOutlet var episodesCount: UILabel?
     
     
-    private let presenter: DetailsPresenter
-    
-
-    init(presenter: DetailsPresenter) {
-        self.presenter = presenter
-        super.init(nibName: "DetailsViewController", bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var presenter: DetailsPresenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.view = self
-        presenter.viewDidLoad()
+        presenter?.viewDidLoad()
         
     }
     
