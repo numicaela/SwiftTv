@@ -9,32 +9,15 @@
 import UIKit
 
 class MenuRouter {
-    
-    static func start() -> UIViewController {
-        
-        let presenter = MenuPresenter(router: MenuRouter())
-        
-        let controller = MenuViewController(presenter: presenter)
-        
-        return controller
-        
-    }
-    
+
     func pushShowDetail(show: Show, from view: UIViewController){
         
         guard let nav = view.navigationController else { return }
         
-        let showDetail = DetailsRouter.start(show: show)
+        let showDetail = DetailsBuilder.buildDetails(show: show)
         
         nav.pushViewController(showDetail, animated: true)
         
     }
-    
-    
-    
-    
-    
-    
-    
     
 }

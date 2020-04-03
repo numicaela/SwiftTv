@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let screenFrame = UIScreen.main.bounds
         
-        let mainView = MenuRouter.start()
+        let mainView = MenuBuilder.build()
         
         window = UIWindow(frame: screenFrame)
         window?.rootViewController =  UINavigationController(rootViewController: mainView)

@@ -9,16 +9,6 @@
 import UIKit
 
 class DetailsRouter{
-    
-    static func start(show: Show) -> UIViewController {
-         
-        let presenter = DetailsPresenter(show: show, router: DetailsRouter())
-        
-        let controller = DetailsViewController(presenter: presenter)
-        
-        return controller
-        
-    }
-    
-    
+
+    weak var view: DetailsViewController?
 }

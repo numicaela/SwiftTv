@@ -13,24 +13,12 @@ class MenuViewController: UIViewController {
     
     @IBOutlet var table: UITableView?
     
-    private let presenter: MenuPresenter
-    
-    
-    init(presenter: MenuPresenter) {
-        self.presenter = presenter
-        super.init(nibName: "MenuViewController", bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+    var presenter: MenuPresenter?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        presenter.view = self
-        presenter.viewDidLoad()
+        presenter?.viewDidLoad()
     }
     
     
@@ -65,19 +53,19 @@ extension MenuViewController : UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.getShows().count
+        return presenter?.getShows().count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MenuCell.reuseIdentifier, for: indexPath) as! MenuCell
-        let show = presenter.getShowIndex(indexPath)
+        guard let show = presenter?.getShowIndex(indexPath) else { return cell }
         cell.setup(show)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath : IndexPath){
-        let show = presenter.getShowIndex(indexPath)
-        presenter.didSelectRowAt(show: show, from: self)
+        guard let show = presenter?.getShowIndex(indexPath) else { return }
+        presenter?.didSelectRowAt(show: show, from: self)
     }
     
 }

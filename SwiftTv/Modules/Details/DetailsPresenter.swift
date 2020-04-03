@@ -15,16 +15,14 @@ protocol DetailsVCPresentable: class {
 
 class DetailsPresenter {
     
-    private let interactor = DetailsInteractor()
-    private var router = DetailsRouter()
+    var interactor = DetailsInteractor()
+    var router = DetailsRouter()
     weak var view: DetailsVCPresentable?
     private var show: Show
     private var episodes = [Episode]()
     
-    init(show: Show, router: DetailsRouter) {
-        self.router = router
+    init(show: Show) {
         self.show = show
-        interactor.delegate = self
     }
     
     func viewDidLoad(){
