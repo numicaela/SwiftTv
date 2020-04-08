@@ -15,7 +15,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet var summary: UILabel?
     @IBOutlet var language: UILabel?
     @IBOutlet var rating: UILabel?
-    @IBOutlet var episodesCount: UILabel?
+    @IBOutlet var table: UITableView?
     
     
     var presenter: DetailsPresenter?
@@ -30,9 +30,10 @@ class DetailsViewController: UIViewController {
     func setupShow(show: Show){
         name?.text = show.name
         language?.text = show.language
-        rating?.text = "\(show.rating ?? 0.0)"
+        rating?.text = "Rating: \(show.rating ?? 0.0)"
         setupSummary(show: show)
         setupImage(show: show)
+        setupTable()
     }
     
     func setupSummary(show: Show){
@@ -41,14 +42,48 @@ class DetailsViewController: UIViewController {
         summary?.font = UIFont.systemFont(ofSize: 18.0)
     }
     
+    
+    
     func setupImage(show: Show){
         guard let url = URL(string: show.image ?? "") else {return}
         imageShow?.downloadImage(from: url)
     }
     
-    func setupEpisodes(episodes: [Episode]){
-        episodesCount?.text = "\(episodes.count)"
+    func setupTable(){
+        setupDelegate()
+        table?.separatorStyle = .singleLine
+        table?.register(UINib(nibName: "DetailsCell", bundle: nil), forCellReuseIdentifier: DetailsCell.reuseIdentifier)
     }
+    
+    
+    func setupDelegate(){
+        table?.delegate = self
+        table?.dataSource = self
+    }
+    
+}
+
+
+extension DetailsViewController : UITableViewDataSource, UITableViewDelegate{
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+  
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter?.setEpisodes().count ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: DetailsCell.reuseIdentifier, for: indexPath) as! DetailsCell
+        
+        guard let episode = presenter?.getEpisodeIndex(indexPath) else {return cell}
+        cell.setup(episode)
+        
+        return cell
+        
+    }  
     
 }
 
@@ -56,11 +91,10 @@ extension DetailsViewController: DetailsVCPresentable {
    
     func launchShow(_ show: Show) {
         setupShow(show: show)
-    }
-    
-    
-    func launchEpisodes(_ episodes: [Episode]) {
-        setupEpisodes(episodes: episodes)
+        
+        DispatchQueue.main.async {
+            self.table?.reloadData()
+        }
     }
 }
 

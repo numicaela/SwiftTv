@@ -9,7 +9,6 @@
 import Foundation
 
 protocol DetailsVCPresentable: class {
-    func launchEpisodes(_ episodes: [Episode])
     func launchShow(_ show: Show)
 }
 
@@ -32,6 +31,16 @@ class DetailsPresenter {
     
    private func getEpisodes(_ show: Show){
         interactor?.fetchEpisodes(show: show)
+    
+    
+    }
+    
+    func setEpisodes() ->[Episode]{
+        return self.episodes
+    }
+    
+    func getEpisodeIndex(_ indexPath: IndexPath) -> Episode{
+        return episodes[indexPath.row]
     }
     
     
@@ -42,7 +51,6 @@ extension DetailsPresenter: DetailsInteractorDelegate{
     func didResponse(episodes: [Episode]) {
         self.episodes = episodes
         view?.launchShow(show)
-        view?.launchEpisodes(episodes)
     }
     
     

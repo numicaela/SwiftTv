@@ -28,6 +28,8 @@
 		12BC0DEF24128FF200ED4166 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC0DEE24128FF200ED4166 /* DetailsPresenter.swift */; };
 		12BC0DF1241290A200ED4166 /* MenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC0DF0241290A200ED4166 /* MenuPresenter.swift */; };
 		12BC0DF32412D9A400ED4166 /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC0DF22412D9A400ED4166 /* Episode.swift */; };
+		12DFE91C243D1684009EDA0F /* DetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DFE91A243D1684009EDA0F /* DetailsCell.swift */; };
+		12DFE91D243D1684009EDA0F /* DetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12DFE91B243D1684009EDA0F /* DetailsCell.xib */; };
 		12FFC91923EB119C00611FDC /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12FFC91723EB119C00611FDC /* DetailsViewController.swift */; };
 		12FFC91A23EB119C00611FDC /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12FFC91823EB119C00611FDC /* DetailsViewController.xib */; };
 		7AF438DE07694F4A33144A77 /* Pods_SwiftTv.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8918FCA9203AFFBA1DC59A2D /* Pods_SwiftTv.framework */; };
@@ -58,6 +60,8 @@
 		12BC0DEE24128FF200ED4166 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
 		12BC0DF0241290A200ED4166 /* MenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresenter.swift; sourceTree = "<group>"; };
 		12BC0DF22412D9A400ED4166 /* Episode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
+		12DFE91A243D1684009EDA0F /* DetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCell.swift; sourceTree = "<group>"; };
+		12DFE91B243D1684009EDA0F /* DetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsCell.xib; sourceTree = "<group>"; };
 		12FFC91723EB119C00611FDC /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		12FFC91823EB119C00611FDC /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		8918FCA9203AFFBA1DC59A2D /* Pods_SwiftTv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +166,15 @@
 			path = ModelsDTO;
 			sourceTree = "<group>";
 		};
+		12DFE919243D164C009EDA0F /* DetailsCell */ = {
+			isa = PBXGroup;
+			children = (
+				12DFE91A243D1684009EDA0F /* DetailsCell.swift */,
+				12DFE91B243D1684009EDA0F /* DetailsCell.xib */,
+			);
+			path = DetailsCell;
+			sourceTree = "<group>";
+		};
 		12FFC91523EB115200611FDC /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +192,7 @@
 		12FFC91623EB116800611FDC /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				12DFE919243D164C009EDA0F /* DetailsCell */,
 				12FFC91723EB119C00611FDC /* DetailsViewController.swift */,
 				12FFC91823EB119C00611FDC /* DetailsViewController.xib */,
 				12BC0DEE24128FF200ED4166 /* DetailsPresenter.swift */,
@@ -270,6 +284,7 @@
 				124CAA8223E9BD2C0061B56A /* Assets.xcassets in Resources */,
 				12FFC91A23EB119C00611FDC /* DetailsViewController.xib in Resources */,
 				124CAA9D23E9F2640061B56A /* MenuCell.xib in Resources */,
+				12DFE91D243D1684009EDA0F /* DetailsCell.xib in Resources */,
 				124CAA9823E9E7B20061B56A /* MenuViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,6 +340,7 @@
 			files = (
 				12BC0DEF24128FF200ED4166 /* DetailsPresenter.swift in Sources */,
 				1274501B242D46CE0042D6DB /* DetailsInteractor.swift in Sources */,
+				12DFE91C243D1684009EDA0F /* DetailsCell.swift in Sources */,
 				12BC0DF32412D9A400ED4166 /* Episode.swift in Sources */,
 				127F975B242B9C9300B93E3A /* MenuInteractor.swift in Sources */,
 				12B702B9240E94D6001735EF /* Api.swift in Sources */,
