@@ -11,7 +11,7 @@ import UIKit
 
 class MenuViewController: UIViewController {
     
-    @IBOutlet var table: UITableView?
+    @IBOutlet weak var table: UITableView!
     
     var presenter: MenuPresenter?
     

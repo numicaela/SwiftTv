@@ -12,10 +12,10 @@ import Alamofire
 
 class MenuCell: UITableViewCell {
     
-    @IBOutlet var card: UIView?
-    @IBOutlet var name: UILabel?
-    @IBOutlet var genre: UILabel?
-    @IBOutlet var backgroundImage: UIImage?
+    @IBOutlet weak var card: UIView!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var genre: UILabel!
+    @IBOutlet weak var backgroundImage: UIImage!
     static let reuseIdentifier = "MenuCell"
     
     

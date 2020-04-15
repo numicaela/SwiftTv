@@ -10,19 +10,28 @@ import UIKit
 
 class DetailsCell: UITableViewCell {
     
-    @IBOutlet var card: UIView?
-    @IBOutlet var episodeLabel: UILabel?
+    @IBOutlet weak var card: UIView!
+    @IBOutlet weak var episodeLabel: UILabel!
    
     static let reuseIdentifier = "DetailsCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        setup()
     }
 
 
     func setup(_ episode: Episode){
         selectionStyle = .none
         episodeLabel?.text = episode.name
+    }
+    
+    private func setup(){
+        
+        selectionStyle = .none
+        card.layer.borderWidth = 1
+        card.layer.borderColor = UIColor.lightGray.cgColor
+        card.layer.backgroundColor = UIColor.black.cgColor
     }
     
 }

@@ -10,12 +10,15 @@ import UIKit
 
 class DetailsViewController: UIViewController {
     
-    @IBOutlet var name: UILabel?
-    @IBOutlet var imageShow: UIImageView?
-    @IBOutlet var summary: UILabel?
-    @IBOutlet var language: UILabel?
-    @IBOutlet var rating: UILabel?
-    @IBOutlet var table: UITableView?
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var imageShow: UIImageView!
+    @IBOutlet weak var summary: UILabel!
+    @IBOutlet weak var language: UILabel!
+    @IBOutlet weak var rating: UILabel!
+    @IBOutlet weak var table: UITableView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var contentView: UIStackView!
+    @IBOutlet weak var tableHeight: NSLayoutConstraint!
     
     
     var presenter: DetailsPresenter?
@@ -23,6 +26,7 @@ class DetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+        presenter?.view = self
         
     }
     
@@ -61,6 +65,15 @@ class DetailsViewController: UIViewController {
         table?.dataSource = self
     }
     
+    func setupConstraint(){
+        
+        tableHeight?.constant = table.contentSize.height
+        view.layoutSubviews()
+        scrollView?.contentSize = CGSize.init(width: view.frame.width, height: contentView.frame.height + table.contentSize.height)
+        scrollView.layoutIfNeeded()
+        
+    }
+    
 }
 
 
@@ -83,7 +96,7 @@ extension DetailsViewController : UITableViewDataSource, UITableViewDelegate{
         
         return cell
         
-    }  
+    }
     
 }
 
@@ -94,7 +107,9 @@ extension DetailsViewController: DetailsVCPresentable {
         
         DispatchQueue.main.async {
             self.table?.reloadData()
+            self.setupConstraint()
         }
+        
     }
 }
 
