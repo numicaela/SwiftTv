@@ -9,12 +9,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="SwiftTv" customModuleProvider="target">
             <connections>
-                <outlet property="contentView" destination="7CU-hT-bAb" id="pih-Xl-6aS"/>
+                <outlet property="content" destination="7CU-hT-bAb" id="pih-Xl-6aS"/>
                 <outlet property="imageShow" destination="lFT-Vg-DgV" id="0M1-iL-lvm"/>
                 <outlet property="language" destination="Bbk-l8-j0r" id="RA4-ut-TLw"/>
                 <outlet property="name" destination="y3r-ri-dhq" id="lGZ-6X-bL8"/>
                 <outlet property="rating" destination="and-JU-0oP" id="LQu-5C-0kS"/>
-                <outlet property="scrollView" destination="bBm-G1-kow" id="cfv-fT-DxO"/>
+                <outlet property="scroll" destination="bBm-G1-kow" id="cfv-fT-DxO"/>
                 <outlet property="summary" destination="X15-Pt-DUb" id="qSh-OB-kC3"/>
                 <outlet property="table" destination="r0F-ou-Nm6" id="wu9-QE-WKN"/>
                 <outlet property="view" destination="wKC-8i-DCX" id="ZcB-O2-AlM"/>
@@ -40,25 +40,25 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3r-ri-dhq">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="277.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                            <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Language" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bbk-l8-j0r">
                                             <rect key="frame" x="0.0" y="285.5" width="414" height="16"/>
                                             <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
-                                            <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="and-JU-0oP">
                                             <rect key="frame" x="0.0" y="309.5" width="414" height="16"/>
                                             <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
-                                            <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X15-Pt-DUb">
                                             <rect key="frame" x="0.0" y="333.5" width="414" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="textColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>

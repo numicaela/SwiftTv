@@ -16,8 +16,8 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var language: UILabel!
     @IBOutlet weak var rating: UILabel!
     @IBOutlet weak var table: UITableView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var contentView: UIStackView!
+    @IBOutlet weak var scroll: UIScrollView!
+    @IBOutlet weak var content: UIStackView!
     @IBOutlet weak var tableHeight: NSLayoutConstraint!
     
     
@@ -42,7 +42,7 @@ class DetailsViewController: UIViewController {
     
     func setupSummary(show: Show){
         summary?.attributedText = StringManager.htmlAtributtedString(show.summary)
-        summary?.textColor = UIColor.systemYellow
+        summary?.textColor = UIColor.systemPink
         summary?.font = UIFont.systemFont(ofSize: 18.0)
     }
     
@@ -69,8 +69,8 @@ class DetailsViewController: UIViewController {
         
         tableHeight?.constant = table.contentSize.height
         view.layoutSubviews()
-        scrollView?.contentSize = CGSize.init(width: view.frame.width, height: contentView.frame.height + table.contentSize.height)
-        scrollView.layoutIfNeeded()
+        scroll?.contentSize = CGSize.init(width: view.frame.width, height: content.frame.height + table.contentSize.height)
+        scroll.layoutIfNeeded()
         
     }
     
@@ -80,9 +80,14 @@ class DetailsViewController: UIViewController {
 extension DetailsViewController : UITableViewDataSource, UITableViewDelegate{
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return presenter?.numberOfSection() ?? 0
     }
-  
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let tittle = presenter?.tittleBySection(section: section)
+        return tittle
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return presenter?.setEpisodes().count ?? 0
     }
