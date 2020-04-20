@@ -18,6 +18,7 @@ struct Show {
     let image: String?
     let rating: Double?
     let summary: String?
+    var episodes: EpisodesBySeason?
     
     init(_ show: ShowDTO) {
         id = show.id
@@ -30,6 +31,14 @@ struct Show {
         summary = show.summary
     }
     
-  
+}
+
+struct EpisodesBySeason{
+    
+    var arrayOfEpisodes: [[Episode]]
+    
+    init(arrayEp: [[Episode]]) {
+        self.arrayOfEpisodes = arrayEp
+    }
     
 }
